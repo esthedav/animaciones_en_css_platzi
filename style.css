@@ -1,0 +1,439 @@
+/* Global styles */
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.phone {
+  position: relative;
+  height: 600px;
+  width: 300px;
+  border: 8px solid black;
+  border-radius: 36px;
+  background: #ccefff;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.2);
+}
+
+.layer {
+  position: absolute;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  top: 48px;
+}
+
+h1,
+h3 {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 16px;
+}
+
+
+/* Game logic */
+body {
+  counter-reset: game;
+}
+
+input[type='checkbox']:checked {
+  counter-increment: game;
+}
+
+.total-counter::after {
+  margin-left: 8px;
+  content: counter(game);
+}
+
+
+
+/* Layout */
+
+
+/* bunny 1 */
+.layer-1 {
+  z-index: 1;
+  height: 450px;
+  width: 80px;
+  bottom: 0;
+  right: 60px;
+  animation: bunny 1.2s ease-in-out infinite;
+
+}
+
+
+/* bunny 2 */
+.layer-2 {
+  z-index: 2;
+  height: 450px;
+  width: 80px;
+  bottom: 0;
+  left: 60px;
+  animation: bunny 2s ease-in-out infinite;
+}
+
+/* wall 1 */
+.layer-3 {
+  z-index: 3;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  height: 400px;
+  background: #bb6d51;
+  border-radius: 24px;
+
+  /* Cliff border and shadow */
+  &::before {
+    content: "";
+    width: 100%;
+    height: 96px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #a6563f 25%, transparent 25%) -50px 0,
+      linear-gradient(-135deg, #a6563f 25%, transparent 25%) -50px 0,
+      linear-gradient(45deg, #a6563f 25%, transparent 25%),
+      linear-gradient(-45deg, #a6563f 25%, transparent 25%);
+    background-size: 32px 140px;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #67a167 25%, transparent 25%) -50px 0,
+      linear-gradient(-135deg, #67a167 25%, transparent 25%) -50px 0,
+      linear-gradient(45deg, #67a167 25%, transparent 25%),
+      linear-gradient(-45deg, #67a167 25%, transparent 25%);
+    background-size: 32px 80px;
+  }
+}
+
+/* bunny 3 */
+.layer-4 {
+  z-index: 4;
+  height: 350px;
+  width: 80px;
+  bottom: 0;
+  left: 20px;
+  animation: bunny 1.5s ease-in-out infinite;
+}
+
+/* wall 2 */
+.layer-5 {
+  z-index: 5;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  height: 300px;
+  border-radius: 24px;
+  border-bottom-left-radius: 30px;
+  background: #bb6d51;
+  box-shadow: 8px -4px 16px rgba(0, 0, 0, 0.2),
+    8px -4px 24px rgba(0, 0, 0, 0.3);
+
+  /* Cliff border and shadow */
+  &::before {
+    content: "";
+    width: 100%;
+    height: 96px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #a6563f 25%, transparent 25%) -50px 0,
+      linear-gradient(-135deg, #a6563f 25%, transparent 25%) -50px 0,
+      linear-gradient(45deg, #a6563f 25%, transparent 25%),
+      linear-gradient(-45deg, #a6563f 25%, transparent 25%);
+    background-size: 32px 140px;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #67a167 25%, transparent 25%) -50px 0,
+      linear-gradient(-135deg, #67a167 25%, transparent 25%) -50px 0,
+      linear-gradient(45deg, #67a167 25%, transparent 25%),
+      linear-gradient(-45deg, #67a167 25%, transparent 25%);
+    background-size: 32px 80px;
+  }
+}
+
+/* bunny 4 */
+.layer-6 {
+  z-index: 6;
+  height: 250px;
+  width: 80px;
+  bottom: 0;
+  right: 10px;
+  border-bottom-right-radius: 30px;
+  animation: bunny 0.8s ease-in-out infinite;
+}
+
+/* wall 4 */
+.layer-7 {
+  z-index: 7;
+  right: 0;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  height: 200px;
+  border-radius: 24px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  background: #bb6d51;
+  box-shadow: -8px -4px 16px rgba(0, 0, 0, 0.3);
+
+  /* Cliff border and shadow */
+  &::before {
+    content: "";
+    width: 100%;
+    height: 96px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #a6563f 25%, transparent 25%) -50px 0,
+      linear-gradient(-135deg, #a6563f 25%, transparent 25%) -50px 0,
+      linear-gradient(45deg, #a6563f 25%, transparent 25%),
+      linear-gradient(-45deg, #a6563f 25%, transparent 25%);
+    background-size: 32px 140px;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #67a167 25%, transparent 25%) -50px 0,
+      linear-gradient(-135deg, #67a167 25%, transparent 25%) -50px 0,
+      linear-gradient(45deg, #67a167 25%, transparent 25%),
+      linear-gradient(-45deg, #67a167 25%, transparent 25%);
+    background-size: 32px 80px;
+  }
+}
+
+/* bush */
+.layer-8 {
+  position: absolute;
+  z-index: 8;
+  width: 60%;
+  height: 20%;
+  bottom: 0;
+  right: 20%;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 40%;
+    height: 70%;
+    bottom: 0;
+    left: 0;
+    background: #67A167;
+    border-radius: 100px 100px 10px 20px;
+
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 40%;
+    height: 70%;
+    bottom: 0;
+    right: 0;
+    background: #67A167;
+    border-radius: 100px 100px 10px 20px;
+  }
+
+  .grass {
+    position: absolute;
+    width: 40%;
+    height: 90%;
+    bottom: 0;
+    left: 30%;
+    background: #67A167;
+    border-radius: 100px 100px 10px 20px;
+  }
+}
+
+
+/* left withe bush */
+.layer-9 {
+  position: absolute;
+  z-index: 9;
+  width: 40%;
+  height: 17%;
+  bottom: 0;
+  left: 0%;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 75%;
+    height: 100%;
+    background: white;
+    border-radius: 100px 100px 10px 60px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 60%;
+    bottom: 0;
+    right: 0;
+    background: white;
+    border-radius: 100px;
+  }
+}
+
+/* right white bush */
+.layer-10 {
+  position: absolute;
+  z-index: 10;
+  width: 40%;
+  height: 17%;
+  bottom: 0;
+  right: 0;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 75%;
+    height: 100%;
+    right: 0;
+    background: white;
+    border-radius: 100px 100px 60px 20px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 60%;
+    bottom: 0;
+    left: 0;
+    background: white;
+    border-radius: 100px;
+  }
+}
+
+/* * Bunny */
+
+.left-ear--outer {
+  width: 20px;
+  height: 50px;
+  border-radius: 90%;
+  position: absolute;
+  left: 4px;
+  background: white;
+}
+
+.left-ear--inner {
+  position: absolute;
+  background-color: pink;
+  width: 10px;
+  height: 40px;
+  left: 10px;
+  top: 10px;
+  border-radius: 90%;
+}
+
+.right-ear--outer {
+  width: 20px;
+  height: 50px;
+  border-radius: 90%;
+  position: absolute;
+  right: 4px;
+  background: white;
+}
+
+.right-ear--inner {
+  position: absolute;
+  background-color: pink;
+  width: 10px;
+  height: 40px;
+  right: 10px;
+  top: 10px;
+  border-radius: 90%;
+}
+
+.head {
+  position: absolute;
+  height: 80px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: rgb(255, 253, 253);
+  border-radius: 50%;
+  top: 20px;
+}
+
+.head__eye {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: black;
+  top: 15px;
+
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+  0% {
+    height: 4px;
+  }
+
+  5% {
+    transform: translateY(2px);
+    height: 1px;
+  }
+
+  10% {
+    transform: translateY(0px);
+    height: 4px;
+  }
+}
+
+.head__eye--left {
+  left: 30px;
+}
+
+.head__eye--right {
+  right: 30px;
+}
+
+/* Animations */
+
+@keyframes bunny {
+  0% {
+    bottom: 0;
+  }
+
+  60% {
+    bottom: -80px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
